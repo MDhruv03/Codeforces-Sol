@@ -1,0 +1,31 @@
+{
+"Basic CP Template": {
+    "prefix": "cp",
+    "body": [
+        "// Author: MDhruv03",
+        "// Time: $CURRENT_HOUR:$CURRENT_MINUTE on $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+        "",
+        "#include <bits/stdc++.h>",
+        "using namespace std;",
+        "",
+        "#define ll long long",
+        "#define endl '\\n'",
+        "",
+        "",
+        "int main() {",
+        "    ios::sync_with_stdio(false);",
+        "    cin.tie(0);",
+        "",
+		"int tt;",
+        "  cin >> tt;",
+        "    while (tt--){",
+		"",
+		"}",
+        "",
+        "    return 0;",
+        "}"
+    ],
+    "description": "Competitive Programming Template"
+}
+
+}
