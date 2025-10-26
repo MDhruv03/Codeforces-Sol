@@ -1,2 +1,2 @@
-Codeforces Problem Solutions
+Codeforces / CSES / etc. Solutions
 
