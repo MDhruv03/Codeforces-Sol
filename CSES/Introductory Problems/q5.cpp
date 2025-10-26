@@ -14,28 +14,17 @@ int main() {
 
 int n;
 cin >> n;
-if(n<=1)
+if(n==1)
+    cout << 1 << endl;
+ else if(n<=3)
     cout << "NO SOLUTION" << endl;
- 
-vector<int> nums(n);
-for(int i=0; i<n; i++){
-    cin >> nums[i];
-}
-if(n==2)
-{
-    if(abs(nums[0]-nums[1])<=1)
-        cout << "NO SOLUTION" << endl;
-    else
-        cout << nums[0] << " " << nums[1] << endl;
-}
-if(n==3)
-{
-    sort(nums.begin(), nums.end());
-    if(abs(nums[0]-nums[1])<=1 && abs(nums[1]-nums[2])<=1)
-        cout << "NO SOLUTION" << endl;
-    else
-        cout << nums[0] << " " << nums[1] << " " << nums[2] << endl;
-}
+ else {
+    for(int i=2; i<=n; i+=2)
+        cout << i << " ";      
 
+    for(int i=1; i<=n; i+=2)
+        cout << i << " ";
+    cout << endl;
+ }
     return 0;
 }
