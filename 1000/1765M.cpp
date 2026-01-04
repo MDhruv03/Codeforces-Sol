@@ -4,50 +4,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define endl '\n'
+using ll = long long;
 
-int gcd(int a, int b) {
-    while (b != 0) {
-        int temp = b;
+ll gcd(ll a, ll b) {
+    while (b) {
+        ll t = b;
         b = a % b;
-        a = temp;
+        a = t;
     }
     return a;
 }
 
-int lcm(int a, int b) {
-    return (a * b) / gcd(a, b);
-}
-
-
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(0);
+    cin.tie(nullptr);
 
-int tt;
-  cin >> tt;
-    while (tt--){
-        int n;
+    int tt;
+    cin >> tt;
+
+    while (tt--) {
+        ll n;
         cin >> n;
-        int mini=INT_MAX;
-        int l,r;
-        int one=1,two=1;
-        for(int i=1;i<n/2;i++)
-        {
-            l=i;
-            r=n-i;
-            if(mini>lcm(l,r))
-            {
-                mini=lcm(l,r);
-                one =l;
-                two=r;
-            }
 
+        ll best = 1;
+        for (ll d = 1; d * d <= n; d++) {
+            if (n % d == 0) {
+                if (d <= n / 2) best = max(best, d);
+                ll other = n / d;
+                if (other <= n / 2) best = max(best, other);
+            }
         }
 
-        cout << one << " " << two << endl;
-}
+        cout << best << " " << (n - best) << '\n';
+    }
 
     return 0;
 }

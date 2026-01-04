@@ -1,5 +1,5 @@
 // Author: MDhruv03
-// Time: 14:53 on 15/08/2025
+// Time: 16:11 on 04/01/2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,34 +15,38 @@ int main() {
 int tt;
   cin >> tt;
     while (tt--){
-        int n,k,q;
+         int n, k, q;
         cin >> n >> k >> q;
-        vector<ll> arr(n);
+
+        vector<ll> a(n);
         for (int i = 0; i < n; i++) {
-            cin >> arr[i];
+            cin >> a[i];
         }
 
-        int l=0;
-        int r=0;
-        int ways=0;
-        for(int i=0;i<n;i++)
-        {
-            if(arr[i]<k)
-            {
-                r++;
-                continue;
+        ll ways = 0;
+        ll cnt = 0;  // length of current valid segment
+
+        for (int i = 0; i < n; i++) {
+            if (a[i] <= q) {
+                cnt++;
+            } else {
+                if (cnt >= k) {
+                    ll x = cnt - k + 1;
+                    ways += x * (x + 1) / 2;
+                }
+                cnt = 0;
             }
-            else if(r-l+1>=k){
-                ways += (r-l+1-k)*(r-l+1-k+2)/2;
-                l=i+1;
-                r=i+1;
-            }
-        }
-        if(r-l+1>=k){
-            ways += (r-l+1-k)*(r-l+1-k+2)/2;
         }
 
-        cout << ways << endl;
+        // handle last segment
+        if (cnt >= k) {
+            ll x = cnt - k + 1;
+            ways += x * (x + 1) / 2;
+        }
+
+        cout << ways << '\n';
+
+
 }
 
     return 0;
