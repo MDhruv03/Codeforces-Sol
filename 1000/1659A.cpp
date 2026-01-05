@@ -1,5 +1,5 @@
 // Author: MDhruv03
-// Time: 19:17 on 04/09/2025
+// Time: 18:24 on 05/01/2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -15,34 +15,20 @@ int main() {
 int tt;
   cin >> tt;
     while (tt--){
-
         int n,r,b;
         cin >> n >> r >> b;
-        
-        string ans="";
-        if(b!=1)
-        {
-            int repeat=r/b;
-        int rem=r%b;
-        if(rem==0)
-        {
-            repeat-=1;
-            rem=b;
+        string s="";
+        int repeat=r/(b+1);
+        int extra=r%(b+1);
+        for(int i=1;i<=b+1;i++){
+            for(int j=0;j<repeat;j++) s+='R';
+            if(extra>0){
+                s+='R';
+                extra--;
+            }
+            if(i!=b+1) s+='B';
         }
-        string segment="";
-        for(int i=0;i<repeat;i++) segment+='R';
-        segment+='B';
-        for(int i=0;i<b;i++){
-            ans+=segment;
-        }
-        for(int i=0;i<rem;i++) ans+='R';
-        }
-        else{
-            for(int i=0;i<r;i++) ans+='R';
-            ans[r/2]='B';
-            ans+='R';
-        }
-        cout << ans << endl;
+        cout << s << endl;
 }
 
     return 0;
