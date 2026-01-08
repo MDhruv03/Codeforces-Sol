@@ -1,11 +1,23 @@
 // Author: MDhruv03
-// Time: 11:54 on 06/01/2026
+// Time: 23:07 on 08/01/2026
 
 #include <bits/stdc++.h>
 using namespace std;
 
 #define ll long long
 #define endl '\n'
+
+ll xor_till(ll n)
+{
+    if (n % 4 == 0)
+        return n;
+    else if (n % 4 == 1)
+        return 1;
+    else if (n % 4 == 2)
+        return n + 1;
+    else
+        return 0;
+}
 
 
 int main() {
@@ -15,16 +27,23 @@ int main() {
 int tt;
   cin >> tt;
     while (tt--){
-        int a,b;
+        ll a,b;
         cin >> a >> b;
+        ll xor_arr = xor_till(a-1);
 
-        int result=a;
-        if(a==b)
-            result+=2;
+        if(xor_arr == b)
+        {
+            cout << a << endl;
+        }
+        else if((xor_arr ^ b) != a)
+        {
+            cout << a+1<< endl;
+        }
         else
-            result++;
-            
-        cout << result << endl;    
+        {
+            cout << a+2 << endl;
+        }
+
 }
 
     return 0;
