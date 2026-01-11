@@ -25,7 +25,7 @@ int tt;
   cin >> tt;
     while (tt--){
         ll x,n;
-        cin >> x >> n;
+        cin >> n >> x;
         vector<ll> a(n);
         for (ll i = 0; i < n; i++)
             cin >> a[i];
