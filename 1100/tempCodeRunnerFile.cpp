@@ -1,5 +1,5 @@
 // Author: MDhruv03
-// Time: 21:45 on 09/01/2026
+// Time: 14:23 on 11/01/2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -7,6 +7,15 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
+bool check(vector<ll>& a, ll mid, ll x) {
+    ll sum = 0;
+    for (ll i = 0; i < a.size(); i++) {
+        if(a[i] < mid) {
+            sum += (mid - a[i]);
+        }
+    }
+    return sum <= x;
+}
 
 int main() {
     ios::sync_with_stdio(false);
@@ -15,46 +24,26 @@ int main() {
 int tt;
   cin >> tt;
     while (tt--){
-        int n;
-        cin >> n;
-        vector<pair<ll,ll>> a(n);
-        for (int i = 0; i < n; i++)
+        ll x,n;
+        cin >> x >> n;
+        vector<ll> a(n);
+        for (ll i = 0; i < n; i++)
+            cin >> a[i];
+
+        ll start=1,end=1e12;
+        ll ans=0;
+        while(start <= end)
+        {
+            ll mid = start + (end - start) / 2;
+            if(check(a,mid,x))
             {
-                cin >> a[i].first;
-                a[i].second = i;
+                ans=mid;
+                start=mid+1;
             }
-
-        sort(a.begin(), a.end());
-        vector<ll> prefix(n,0);
-        prefix[0]=a[0].first;
-        for(ll i=1;i<n;i++){
-            prefix[i]=prefix[i-1]+a[i].first;
+            else
+                end=mid-1;
         }
-
-        vector<ll> result(n);
-        for(ll i=0;i<n;i++){
-            int taken=i;
-            int j=i;
-
-            while(j<n)
-            {
-                pair<ll,ll> temp = {prefix[j]+1,INT_MIN};
-                ll idx = lower_bound(a.begin(),a.end(),temp) - a.begin();
-                idx--;
-
-                if(idx==j)
-                    break;
-                
-                taken+=idx-j;
-                j=idx;    
-            }
-            result[a[i].second]=taken;
-        }
-
-        for(int i=0;i<n;i++)
-            cout << result[i] << " ";
-        
-        cout << endl;    
+        cout << ans << endl;
 }
 
     return 0;
