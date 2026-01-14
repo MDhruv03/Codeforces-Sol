@@ -3,6 +3,7 @@
     "prefix": "cp",
     "body": [
       "// Author: MDhruv03",
+       "// Problem: $TM_FILENAME_BASE",
       "// Time: $CURRENT_HOUR:$CURRENT_MINUTE on $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
       "",
       "#include <bits/stdc++.h>",
