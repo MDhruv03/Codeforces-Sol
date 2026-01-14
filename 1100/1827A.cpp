@@ -1,43 +1,22 @@
+// Author: MDhruv03
+// Time: 10:25 on 14/01/2026
+
 #include <bits/stdc++.h>
 using namespace std;
 
-static const long long MOD = 1e9 + 7;
+#define ll long long
+#define endl '\n'
+
 
 int main() {
     ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(0);
 
-    int tt;
-    cin >> tt;
-    while (tt--) {
-        int n;
-        cin >> n;
+int tt;
+  cin >> tt;
+    while (tt--){
+        
+}   
 
-        vector<long long> a(n), b(n);
-        for (int i = 0; i < n; i++) cin >> a[i];
-        for (int i = 0; i < n; i++) cin >> b[i];
-
-        sort(a.begin(), a.end());
-        sort(b.begin(), b.end());
-
-        long long ans = 1;
-        int j = 0; // number of a[] elements <= b[i]
-
-        for (int i = 0; i < n; i++) {
-            while (j < n && a[j] <= b[i]) {
-                j++;
-            }
-
-            long long choices = (n - j) - i;
-            if (choices <= 0) {
-                ans = 0;
-                break;
-            }
-
-            ans = (ans * choices) % MOD;
-        }
-
-        cout << ans << '\n';
-    }
     return 0;
 }
