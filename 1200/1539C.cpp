@@ -11,10 +11,6 @@ using namespace std;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
-    int tt = 1;
-    cin >> tt;
-    while (tt--) {
         ll n,k,x;
         cin >> n >> k >> x;
         vector<ll> a(n);
@@ -39,7 +35,6 @@ int main() {
         }
 
         cout << ans << '\n';
-    }
 
     return 0;
 }
