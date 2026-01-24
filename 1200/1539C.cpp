@@ -27,7 +27,7 @@ int main() {
         int ans = diffs.size() + 1;
         sort(diffs.begin(), diffs.end());
         for(ll diff : diffs){
-            ll need = diff / x - (diff % x == 0) - 1;
+            ll need = (diff - 1) / x;
             if(need <= k){
                 k -= need;
                 ans--;
