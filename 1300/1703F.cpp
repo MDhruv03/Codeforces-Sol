@@ -1,6 +1,6 @@
 // Author: MDhruv03
-// Problem: 1794C
-// Time: 11:31 on 29/01/2026
+// Problem: 1703F
+// Time: 22:09 on 28/01/2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -19,17 +19,23 @@ int main() {
         cin >> n;
         vector<ll> a(n);
         for(ll &x : a) cin >>x;
-
-        vector<ll> result;
-        ll count=1;
-        cout << 1 << " ";
-        for(ll i=1;i<n;i++)
+        set<ll> indexes;
+        ll count=0;
+        for(ll i=0;i<n;i++)
         {
-            if(a[i-count] >= count+1)
+            if(a[i]<i+1)
+            {
                 count++;
-            cout << count << " ";    
+                indexes.insert(count);
+            }
         }
-        cout << endl;
+        ll result=0;
+        for(auto it : indexes)
+        {
+            result+=(count-it);
+        }
+
+        cout << result << endl;
     }
 
     return 0;
