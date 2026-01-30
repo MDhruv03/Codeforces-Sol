@@ -19,22 +19,16 @@ int main() {
         cin >> n;
         vector<ll> a(n);
         for(ll &x : a) cin >>x;
-        set<ll> indexes;
-        ll count=0;
+        vector<ll> indexes;
+        ll result=0;
         for(ll i=0;i<n;i++)
         {
-            if(a[i]<i+1)
-            {
-                count++;
-                indexes.insert(count);
-            }
+            if(a[i]>=i+1)
+                continue;
+            
+            result+=lower_bound(indexes.begin(),indexes.end(),a[i]) - indexes.begin();
+            indexes.push_back(i+1);    
         }
-        ll result=0;
-        for(auto it : indexes)
-        {
-            result+=(count-it);
-        }
-
         cout << result << endl;
     }
 
