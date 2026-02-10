@@ -14,8 +14,8 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    vector<ll> factorial(20,1);
-    for(ll i=1;i<20;i++)
+    vector<ll> factorial(2e5+1,1);
+    for(ll i=1;i<2e5+1;i++)
         factorial[i]=factorial[i-1]*i%MOD;
 
     int tt = 1;
