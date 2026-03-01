@@ -1,6 +1,6 @@
 // Author: MDhruv03
 // Problem: temp
-// Time: 14:50 on 01/03/2026
+// Time: 15:05 on 01/03/2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -18,18 +18,17 @@ int main() {
     while (tt--) {
         int n;
         cin >> n;
-        vector<int> a(n);
-        for (int i = 0; i < n; i++) {
-            cin >> a[i];
-        }
-        bool flag = false;
-        for (int i = 0; i < n-1; i++) {
-            if(a[i]>a[i+1]){
-                flag = true;
-                break;
+        string s;
+        cin >> s;
+        stack<char> st;
+        for(char c : s) {
+            if(st.empty() || st.top() != c) {
+                st.push(c);
+            } else {
+                st.pop();
             }
         }
-        cout << (!flag ? n : 1) << endl;
+        cout << (st.empty() ? "YES" : "NO") << endl;
     }
 
     return 0;
