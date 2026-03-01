@@ -1,6 +1,6 @@
 // Author: MDhruv03
 // Problem: temp
-// Time: 14:46 on 01/03/2026
+// Time: 14:50 on 01/03/2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -22,14 +22,14 @@ int main() {
         for (int i = 0; i < n; i++) {
             cin >> a[i];
         }
-        sort(a.begin(), a.end());
-        int i =n-1;
-        int count = 0;
-        while(i >= 0 && a[i] ==a[n-1]) {
-            i--;
-            count++;
+        bool flag = false;
+        for (int i = 0; i < n-1; i++) {
+            if(a[i]>a[i+1]){
+                flag = true;
+                break;
+            }
         }
-        cout << count << endl;
+        cout << (!flag ? n : 1) << endl;
     }
 
     return 0;
