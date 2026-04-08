@@ -1,6 +1,6 @@
 // Author: MDhruv03
 // Problem: temp
-// Time: 15:05 on 01/03/2026
+// Time: 18:11 on 08/04/2026
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,19 +16,27 @@ int main() {
     int tt = 1;
     cin >> tt;
     while (tt--) {
-        int n;
-        cin >> n;
-        string s;
-        cin >> s;
-        stack<char> st;
-        for(char c : s) {
-            if(st.empty() || st.top() != c) {
-                st.push(c);
-            } else {
-                st.pop();
-            }
+        int n,k;
+        cin >> n >> k;
+        vector<int> arr(n+2);
+        for (int i = 1; i <= n; i++) {
+            cin >> arr[i];
         }
-        cout << (st.empty() ? "YES" : "NO") << endl;
+        int pivot;
+        cin >> pivot;
+        arr[0]=arr[n+1]=arr[pivot];
+        int left=0,right=0;
+        for(int i=0;i<pivot;i++){
+            if(arr[i]!=arr[i+1])
+                left++;
+        }
+        for(int i=pivot;i<n+1;i++){
+            if(arr[i]!=arr[i+1])
+                right++;
+        }
+
+        cout << max(left,right) << endl;
+
     }
 
     return 0;
